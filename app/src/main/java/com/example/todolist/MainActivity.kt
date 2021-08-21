@@ -1,23 +1,50 @@
 package com.example.todolist
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import android.widget.EditText
+import android.widget.CheckBox
 import android.widget.TextView
-import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        var etButton = findViewById<Button>(R.id.etButtonLbl)
-        var etWeak = findViewById<TextView>(R.id.etWeakLbl)
-        var etCompleter = findViewById<TextView>(R.id.etComlpLbl)
-        var etCreate = findViewById<TextView>(R.id.etCretLbl)
-        var etCre = findViewById<TextView>(R.id.etCretLbl)
-        var etHave = findViewById<TextView>(R.id.etHaveLbl)
-        var etUpdate = findViewById<TextView>(R.id.etUpdateLbl)
-        var etclear = findViewById<Button>(R.id.etClear)
+        var add = findViewById<TextView>(R.id.ettask)
+        var addButton = findViewById<TextView>(R.id.btnAdd)
+        var result = findViewById<TextView>(R.id.et1)
+        var result2 = findViewById<TextView>(R.id.et2)
+        var result3 = findViewById<TextView>(R.id.et3)
+        var result4 = findViewById<TextView>(R.id.et4)
+        var result5 = findViewById<TextView>(R.id.et5)
+        var next=findViewById<Button>(R.id.etNext)
+        next.setOnClickListener{
+            var display = Intent(baseContext,Checkbox::class.java)
+            startActivity(display)
+        }
+        addButton.setOnClickListener {
+            result.setText(add.text.toString())
+            addButton.setOnClickListener {
+                result2.setText(add.text.toString())
+                addButton.setOnClickListener {
+                    result3.setText(add.text.toString())
+                    addButton.setOnClickListener {
+                        result4.setText(add.text.toString())
+                        addButton.setOnClickListener {
+                            result5.setText(add.text.toString())
+
+
+                        }
+                    }
+                }
+            }
+        }
     }
 }
+
+
+
+
+
+
